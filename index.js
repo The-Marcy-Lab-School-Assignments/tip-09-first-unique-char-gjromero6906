@@ -12,8 +12,23 @@
  */
 
 const firstUniqChar = (s) => {
-
+    let letterFreq ={};
+    for(const char of s){
+        if(letterFreq[char]){
+            letterFreq[char] ++;
+        }else{
+            letterFreq[char] =1;
+        }
+    }
+    for (let i =0;i<s.length;i++){
+        const letter = s[i];
+        if(letterFreq[letter]=== 1){
+            return i;
+        }
+    }
+    return -1;
 };
+console.log(firstUniqChar('leetcode'));
 
 // Export the function for testing
 module.exports = { firstUniqChar };
